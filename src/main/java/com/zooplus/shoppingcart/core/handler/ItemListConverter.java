@@ -31,11 +31,10 @@ public class ItemListConverter {
         if (inputRequest == null) {
             return null;
         }
-        List<Item> itemList = inputRequest.stream()
+        return inputRequest.stream()
                 .map(inputData -> getItem(inputData))
                 .flatMap(List::stream)
                 .collect(Collectors.toList());
-        return itemList;
     }
 
 
@@ -53,7 +52,7 @@ public class ItemListConverter {
 
     private void populateItem(List<Item> itemList, String[] words) {
         if (isValidRequest(words.length, 4)) {
-            ConsoleLogger.console("THE given input is not valid :: " + words.toString());
+            ConsoleLogger.console("THE given input is not valid :: " + Arrays.toString(words));
             return;
         }
         String itemDesc = getItemDescription(words, 2);
@@ -69,7 +68,7 @@ public class ItemListConverter {
                     .build();
             itemList.add(item);
         } else {
-            ConsoleLogger.console("THE given input is not valid :: " + words);
+            ConsoleLogger.console("THE given input is not valid :: " + Arrays.toString(words));
         }
     }
 
@@ -109,9 +108,6 @@ public class ItemListConverter {
         if (!StringUtils.hasLength(itemDesc)) {
             return false;
         }
-        if (null == price) {
-            return false;
-        }
-        return true;
+        return null != price;
     }
 }

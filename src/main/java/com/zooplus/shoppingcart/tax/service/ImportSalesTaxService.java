@@ -6,7 +6,6 @@ import com.zooplus.shoppingcart.goods.models.ItemType;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 @Service
 public class ImportSalesTaxService implements TaxService{

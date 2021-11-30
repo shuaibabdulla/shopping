@@ -2,9 +2,6 @@ package com.zooplus.shoppingcart.cart.service;
 
 import com.zooplus.shoppingcart.cart.models.ShoppingCart;
 import com.zooplus.shoppingcart.goods.models.Item;
-import com.zooplus.shoppingcart.tax.service.BasicSalesTaxService;
-import com.zooplus.shoppingcart.tax.service.DefaultTaxService;
-import com.zooplus.shoppingcart.tax.service.ImportSalesTaxService;
 import com.zooplus.shoppingcart.tax.service.TaxService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -25,8 +22,7 @@ public class DefaultShoppingCartService implements ShoppingCartService {
         if (goodsList == null) {
             return null;
         }
-        ShoppingCart cart = getShoppingCart(goodsList);
-        return cart;
+        return getShoppingCart(goodsList);
     }
 
     private ShoppingCart getShoppingCart(List<Item> goodsList) {
@@ -44,13 +40,13 @@ public class DefaultShoppingCartService implements ShoppingCartService {
 
     private BigDecimal getTaxSum(List<Item> goodsList) {
         return goodsList.stream()
-                    .map(x -> x.getTaxAmount())
+                    .map(Item::getTaxAmount)
                     .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
     private BigDecimal getItemSum(List<Item> goodsList) {
         return goodsList.stream()
-                    .map(x -> x.getPrice())
+                    .map(Item::getPrice)
                     .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 

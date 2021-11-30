@@ -27,7 +27,7 @@ public class TaxHandlerFactoryTest {
 
 
     @Test
-    public void whenRequestIsInvalid_thenExpectException() throws InvalidRequestException {
+    public void whenRequestIsInvalid_thenExpectException() {
         Item item = new Item();
         item.setItemType(ItemType.OTHER);
         try {

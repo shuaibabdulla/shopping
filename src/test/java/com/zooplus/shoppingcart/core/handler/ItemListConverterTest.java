@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ItemListConverterTest {
 
-    private ItemListConverter itemListConverter = new ItemListConverter();
+    private final ItemListConverter itemListConverter = new ItemListConverter();
 
     @Test
     public void whenInvalidInputRequest_thenReturnNull(){
