@@ -34,7 +34,7 @@ Enter fileName : Options is 1 . input1.txt 2. input2.txt 3. input3.txt
 once you enter the filename corresponding file data will be processsed. 
 
 ## Docker
-I have pushed the same as docker also .
+I have pushed the same as docker also as i have little exposure fpr docker with my local test purpose.
 
 ```sh
 docker pull shuaibabdulla40/shoppingcart:version1
@@ -42,6 +42,7 @@ docker pull shuaibabdulla40/shoppingcart:version1
 Once done, run the Docker image and map the port to whatever you wish on
 your host. In this example, we simply map port 8000 of the host to
 port 8080 of the Docker (or whatever port was exposed in the Dockerfile):
+
 
 
 
