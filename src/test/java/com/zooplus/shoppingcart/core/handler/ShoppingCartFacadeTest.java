@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShoppingCartHandlerTest {
+public class ShoppingCartFacadeTest {
 
 
 

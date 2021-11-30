@@ -4,14 +4,16 @@ import com.zooplus.shoppingcart.cart.models.ShoppingCart;
 import com.zooplus.shoppingcart.cart.service.ShoppingCartService;
 import com.zooplus.shoppingcart.core.logger.ConsoleLogger;
 import com.zooplus.shoppingcart.goods.models.Item;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
-@Component
-public class ShoppingCartHandler {
+@Service
+@RequiredArgsConstructor( onConstructor = @__( @Autowired ))
+public class ShoppingCartFacade {
 
     public static final String INPUT = "Input";
     public static final String OUTPUT = "OUTPUT";
@@ -20,12 +22,6 @@ public class ShoppingCartHandler {
     public static final String TOTAL = "Total : ";
     private final ItemListConverter itemListConverter;
     private final ShoppingCartService shoppingCartService;
-
-    @Autowired
-    public ShoppingCartHandler(ItemListConverter itemListConverter, ShoppingCartService shoppingCartService) {
-        this.itemListConverter = itemListConverter;
-        this.shoppingCartService = shoppingCartService;
-    }
 
     public void processItemsRequest(List<String> inputRequest){
         if(CollectionUtils.isEmpty(inputRequest)){
