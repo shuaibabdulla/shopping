@@ -34,7 +34,7 @@ Enter fileName : Options is 1 . input1.txt 2. input2.txt 3. input3.txt
 once you enter the filename corresponding file data will be processsed. 
 
 ## Docker
-I have pushed the same as docker also as i have little exposure fpr docker with my local test purpose.
+I have pushed the same as docker also as i have little exposure for docker with my local test purpose.
 
 ```sh
 docker pull shuaibabdulla40/shoppingcart:version1
