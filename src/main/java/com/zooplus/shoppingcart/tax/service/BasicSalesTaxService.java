@@ -3,6 +3,7 @@ package com.zooplus.shoppingcart.tax.service;
 import com.zooplus.shoppingcart.core.handler.PriceConverter;
 import com.zooplus.shoppingcart.goods.models.Category;
 import com.zooplus.shoppingcart.goods.models.Item;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -16,7 +17,8 @@ public class BasicSalesTaxService implements TaxService{
 
     private final PriceConverter priceConverter;
 
-    private static final int basicPercentage = 10;
+    @Value("${basic.sales.percentage}")
+    private String basicPercentage;
 
     static {
         exemptionList.add(Category.BOOK);
@@ -35,7 +37,7 @@ public class BasicSalesTaxService implements TaxService{
         if(isItemExemptedForTax(item)){
             return taxAmount;
         }
-        taxAmount = priceConverter.getPriceConverted(item.getPrice(),basicPercentage);
+        taxAmount = priceConverter.getPriceConverted(item.getPrice(),Integer.valueOf(basicPercentage));
         return taxAmount;
     }
 

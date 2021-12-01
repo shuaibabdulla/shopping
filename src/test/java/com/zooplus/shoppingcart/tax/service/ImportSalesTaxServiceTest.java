@@ -5,12 +5,14 @@ import com.zooplus.shoppingcart.core.util.CommonUtil;
 import com.zooplus.shoppingcart.goods.models.Item;
 import com.zooplus.shoppingcart.goods.models.ItemType;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import java.math.BigDecimal;
 
@@ -22,6 +24,11 @@ public class ImportSalesTaxServiceTest {
 
     @Mock
     PriceConverter priceConverter;
+
+    @Before
+    public void init(){
+        ReflectionTestUtils.setField(importSalesTaxService, "importSalesPercentage", "5");
+    }
 
     @Test
     public void whenRequestItemIsNonImported_thenReturnZeroImportSalesTaxAmount(){

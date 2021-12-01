@@ -23,7 +23,7 @@ public class ShoppingCartApplication {
 
     @PostConstruct
     public void listen() {
-        List<String> fileInputRequest = null;
+        List<String> fileInputRequest;
         try {
             Scanner myObj = new Scanner(System.in);
             System.out.println("Enter fileName : Options is 1 . input1.txt 2. input2.txt 3. input3.txt ");

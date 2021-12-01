@@ -3,6 +3,7 @@ package com.zooplus.shoppingcart.tax.service;
 import com.zooplus.shoppingcart.core.handler.PriceConverter;
 import com.zooplus.shoppingcart.goods.models.Item;
 import com.zooplus.shoppingcart.goods.models.ItemType;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -10,7 +11,9 @@ import java.math.BigDecimal;
 @Service
 public class ImportSalesTaxService implements TaxService{
 
-    private static final int importSalesPercentage = 5;
+    @Value("${import.sales.percentage}")
+    private String importSalesPercentage;
+
     private final PriceConverter priceConverter;
 
     public ImportSalesTaxService(PriceConverter priceConverter) {
@@ -23,7 +26,7 @@ public class ImportSalesTaxService implements TaxService{
         if(!isItemImported(item)){
             return taxAmount;
         }
-        taxAmount = priceConverter.getPriceConverted(item.getPrice(),importSalesPercentage);
+        taxAmount = priceConverter.getPriceConverted(item.getPrice(),Integer.valueOf(importSalesPercentage));
         return taxAmount;
     }
 
