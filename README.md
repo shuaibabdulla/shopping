@@ -75,3 +75,8 @@ OUTPUT
 1 chocolate bar at 0.85
 Sales Tax : 1.50
 Total : 29.83
+
+
+## Deisgn and Assumptions
+
+https://github.com/shuaibabdulla/shopping/wiki/Sales-Tax---Design-and-Assumptions
