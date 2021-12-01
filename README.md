@@ -35,9 +35,9 @@ mvn clean install
 
 There are two options for starting the application.
 
-1. Run as spring boot application .
+1. Run the application from the command line as follows.
 
-      * Run the application from the command line as follows. The application will start on port 8080 by default.
+      *  The application will start on port 8080 by default.
 
 ```sh
 java -jar target/shoppingcart-0.0.1-SNAPSHOT.jar
